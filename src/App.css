@@ -1,0 +1,313 @@
+/* ===== Page Wrapper ===== */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a0a 70%);
+  position: relative;
+  padding: 40px 20px;
+}
+
+/* ===== Animated Background Glows ===== */
+.bg-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.bg-glow-1 {
+  width: 300px;
+  height: 300px;
+  background: #c9a84c;
+  top: -100px;
+  right: -50px;
+  animation-delay: 0s;
+}
+
+.bg-glow-2 {
+  width: 200px;
+  height: 200px;
+  background: #c9a84c;
+  bottom: 100px;
+  left: -80px;
+  animation-delay: 3s;
+}
+
+.bg-glow-3 {
+  width: 150px;
+  height: 150px;
+  background: #ffffff;
+  top: 50%;
+  left: 50%;
+  opacity: 0.05;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* ===== Container ===== */
+.container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Logo ===== */
+.logo-wrapper {
+  margin-bottom: 24px;
+  animation: scaleIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #c9a84c, #f5e6a3, #c9a84c, #8b6914);
+  box-shadow:
+    0 0 30px rgba(201, 168, 76, 0.3),
+    0 0 60px rgba(201, 168, 76, 0.1);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.3), 0 0 60px rgba(201, 168, 76, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 0.5), 0 0 80px rgba(201, 168, 76, 0.2); }
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0a0a0a;
+}
+
+/* ===== Brand Text ===== */
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #c9a84c 50%, #f5e6a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.brand-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* ===== Divider ===== */
+.divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.5), transparent);
+  margin: 32px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.divider-diamond {
+  width: 8px;
+  height: 8px;
+  background: #c9a84c;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+/* ===== Link Cards ===== */
+.links-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: slideInLeft 0.6s ease-out both;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.link-card:hover::before {
+  left: 100%;
+}
+
+.link-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(201, 168, 76, 0.6);
+  box-shadow:
+    0 10px 40px rgba(201, 168, 76, 0.15),
+    0 0 20px rgba(201, 168, 76, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.link-card:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Link Icon ===== */
+.link-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.2), rgba(201, 168, 76, 0.05));
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  flex-shrink: 0;
+}
+
+.link-icon-wrapper i {
+  font-size: 1.3rem;
+  color: #c9a84c;
+}
+
+/* ===== Link Name ===== */
+.link-name {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Link Arrow ===== */
+.link-arrow {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.link-card:hover .link-arrow {
+  color: #c9a84c;
+  transform: translate(3px, -3px);
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: 48px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 30px 16px;
+  }
+
+  .logo-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .brand-name {
+    font-size: 2.2rem;
+  }
+
+  .link-card {
+    padding: 16px 20px;
+  }
+
+  .link-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .brand-name {
+    font-size: 3.2rem;
+  }
+
+  .link-card {
+    padding: 20px 28px;
+  }
+}
